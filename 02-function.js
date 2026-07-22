@@ -119,4 +119,39 @@ function fatorial(n) {
 
 console.log(fatorial(5));
 
+// 10. Função que retorna um objeto com métodos
+// closure: função que retorna um objeto com métodos que podem acessar variáveis do escopo da função externa.
+ 
+function calc(a){
+    return {
+        add(b){
+            return a + b;
+        },
+        subtract(b){
+            return a - b;
+        },
+        multiply(b){
+            return a * b;
+        },
+        divide(b){
+            if(b !== 0) return a / b;
+              
+            return "Erro: Divisão por zero!"; 
+        }
+    }
+} 
 
+const resultado = calc(5).add(3);
+console.log(resultado); // Saída: 8
+
+const resultado2 = calc(10).subtract(3);
+console.log(resultado2); // Saída: 7
+
+const resultado3 = calc(4).multiply(3);
+console.log(resultado3); // Saída: 12
+
+const resultado4 = calc(10).divide(2);
+console.log(resultado4); // Saída: 5
+
+const resultado5 = calc(10).divide(0);
+console.log(resultado5); // Saída: Erro: Divisão por zero!
